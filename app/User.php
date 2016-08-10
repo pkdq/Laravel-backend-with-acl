@@ -1,0 +1,31 @@
+<?php
+
+namespace Eybos;
+
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Zizaco\Entrust\Traits\EntrustUserTrait;
+
+class User extends Authenticatable
+{
+    use EntrustUserTrait;
+    
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'first_name', 'last_name', 'email', 'password',
+    ];
+
+    protected $dates = ['last_login_at'];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+}
